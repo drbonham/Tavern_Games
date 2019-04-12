@@ -22,11 +22,6 @@
     <icon name="button_taverngames" file="graphics/btnTavernGames.png" />
     <icon name="button_taverngames_down" file="graphics/btnTavernGamesDown.png" />
     <icon name="button_showhand" file="graphics/btnShowHand.png" />
-    <!--
-        <string name="library_recordtype_label_testData">Games</string>
-        <string name="library_recordtype_empty_testData">&#171; Games 2 &#187;</string>
-        <script name="testscript" file="lua/tavern_games.lua" />
-     -->
 
 		 <!-- Tavern Games Library Button -->
 		<icon file="graphics/download.png" name="icon_tavern_games" />

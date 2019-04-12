@@ -47,6 +47,8 @@
         <script>
           function onButtonPress()
             window.first_roll.setValue(gamescript.roll_1d8());
+            local sText = "is rolling their FIRST ROLL"
+            gamescript.send_message(sText)
           end;
         </script>
       </buttoncontrol>
@@ -73,7 +75,9 @@
         <tooltip textres="first_roll_1d6" />
         <script>
           function onButtonPress()
-          window.second_roll.setValue(gamescript.roll_1d6());
+            window.second_roll.setValue(gamescript.roll_1d6());
+            local sText = "is rolling their SECOND ROLL"
+            gamescript.send_message(sText)
           end;
         </script>
       </buttoncontrol>
@@ -100,7 +104,9 @@
         <tooltip textres="third_roll_1d4" />
         <script>
           function onButtonPress()
-          window.third_roll.setValue(gamescript.roll_1d4());
+            window.third_roll.setValue(gamescript.roll_1d4());
+            local sText = "is rolling their THIRD ROLL"
+            gamescript.send_message(sText)
           end;
         </script>
       </buttoncontrol>
@@ -119,19 +125,9 @@
         <tooltip textres="show_hand" />
         <script>
           function onButtonPress()
-
-          local aMessage = {};
-          if(User.isHost()) then
-          aMessage.sender = "DM"
-          else
-          local rActor = ActorManager.getActorFromCT(CombatManager.getCurrentUserCT());
-          aMessage.sender = rActor.sName;
-          end
-          local finalvalue = window.first_roll.getValue() + window.second_roll.getValue() + window.third_roll.getValue()
-          aMessage.text = "Final Hand: " .. window.first_roll.getValue() .. "+" .. window.second_roll.getValue() .. "+" .. window.third_roll.getValue() .. " = " .. finalvalue;
-          aMessage.font = "chatfont";
-          aMessage.secret = false;
-          Comm.deliverChatMessage(aMessage);
+            local finalvalue = window.first_roll.getValue() + window.second_roll.getValue() + window.third_roll.getValue()
+            local sText = "Final Hand: " .. window.first_roll.getValue() .. "+" .. window.second_roll.getValue() .. "+" .. window.third_roll.getValue() .. " = " .. finalvalue;
+            gamescript.send_message(sText)
           end;
         </script>
       </buttoncontrol>

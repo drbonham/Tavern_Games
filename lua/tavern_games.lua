@@ -5,15 +5,7 @@
 
 function onInit()
 	Comm.registerSlashHandler("taverngame", openWindow);
-	--[[
-	GameSystem.actions["rolld"] = { bUseModStack = false };
-	ActionsManager.registerResultHandler("rolld", onRoll);
 
-	-- send launch message
-	local msg = {sender = "", font = "emotefont"};
-	msg.text = "DMFirmy's Drop Lowest loaded. Type \"/rolld ?\" for usage.";
-	ChatManager.registerLaunchMessage(msg);
-	]]
 end
 
 function openWindow()
@@ -45,4 +37,20 @@ end
 
 function roll_1d4()
         return math.random(4)
+end
+
+function send_message(sText)
+
+          local aMessage = {};
+          if(User.isHost()) then
+			 aMessage.sender = "DM"
+          else
+          local rActor = ActorManager.getActorFromCT(CombatManager.getCurrentUserCT());
+			 aMessage.sender = rActor.sName;
+          end
+          aMessage.text = sText 
+          aMessage.font = "chatfont";
+          aMessage.secret = false;
+          Comm.deliverChatMessage(aMessage);
+
 end
