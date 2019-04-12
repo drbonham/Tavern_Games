@@ -119,18 +119,19 @@
         <tooltip textres="show_hand" />
         <script>
           function onButtonPress()
-            
-            local aMessage = {};
-            if(User.isHost()) then
-              aMessage.sender = "DM"
-            else
-              local rActor = ActorManager.getActorFromCT(CombatManager.getCurrentUserCT());
-              aMessage.sender = rActor.sName;
-            end  
-            aMessage.text = "Final Hand: " .. window.first_roll.getValue() .. "+";
-            aMessage.font = "chatfont";
-            aMessage.secret = false;
-            Comm.deliverChatMessage(aMessage);
+
+          local aMessage = {};
+          if(User.isHost()) then
+          aMessage.sender = "DM"
+          else
+          local rActor = ActorManager.getActorFromCT(CombatManager.getCurrentUserCT());
+          aMessage.sender = rActor.sName;
+          end
+          local finalvalue = window.first_roll.getValue() + window.second_roll.getValue() + window.third_roll.getValue()
+          aMessage.text = "Final Hand: " .. window.first_roll.getValue() .. "+" .. window.second_roll.getValue() .. "+" .. window.third_roll.getValue() .. " = " .. finalvalue;
+          aMessage.font = "chatfont";
+          aMessage.secret = false;
+          Comm.deliverChatMessage(aMessage);
           end;
         </script>
       </buttoncontrol>
