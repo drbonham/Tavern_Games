@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+  <!-- Template for the button 1d8 roll -->
+  <template name="button_roll_1d8">
+    <buttoncontrol>
+      <anchored />
+      <icon normal="d8gicon" pressed="d8gicon"/>
+      <tooltip textres="first_roll_1d8" />
+    </buttoncontrol>
+  </template>
+</root>

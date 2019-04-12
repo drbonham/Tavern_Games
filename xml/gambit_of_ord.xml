@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<windowclass name="GambitofOrd">
+		<frame>campaignlistwithtabs</frame>
+		<sizelimits>
+      <minimum width="600" height="500" />
+	
+		</sizelimits>
+    <minimize>minimized_reference</minimize>
+    <playercontrol />
+    <script>
+      function onInit()
+        gamescript.game_init(self)
+      end
+    </script>
+		<sheetdata>
+      <windowtitlebar name="title">
+        <resource>gambit_of_ord_title</resource>
+      </windowtitlebar>
+			<close_campaignlist />
+			<resize_campaignlistwithtabs />
+
+      <stringfield name="intro">
+        <anchored position="insidetopleft" height="60" />
+        <empty>
+          <text type="formattedtext">
+            <p>Some Text
+            </p>
+          </text>
+        </empty>          
+      </stringfield>
+      
+      <!-- First Roll -->
+      <numbercontrol name="first_roll">
+        <anchored position="insidetopleft" width="80" height="60" offset="100,200" />
+        <frame name="abilityscore" />
+        <nodrag />
+        <nodrop />
+        <font>modcollector</font>
+        <nokeyedit />
+      </numbercontrol>   
+      <buttoncontrol name="button_first_roll">
+        <anchored height="40" to="first_roll" position="below" offset="0,0" />
+        <icon normal="d8gicon" pressed="d8gicon"/>
+        <tooltip textres="first_roll_1d8" />
+        <script>
+          function onButtonPress()
+            window.first_roll.setValue(gamescript.roll_1d8());
+          end;
+        </script>
+      </buttoncontrol>
+      <basicstring name="first_roll_label">
+        <anchored to="first_roll" position="above" offset="0,0" />
+        <static>
+          <textres>first_roll_1d8</textres>
+        </static>
+        <nodrag />
+        <nodrop />
+      </basicstring>
+      <!-- Second Roll -->
+      <numbercontrol name="second_roll">
+        <anchored position="insidetopleft" width="80" height="60" offset="250,200" />
+        <frame name="abilityscore" />
+        <nodrag />
+        <nodrop />
+        <font>modcollector</font>
+        <nokeyedit />
+      </numbercontrol>
+      <buttoncontrol name="button_second_roll">
+        <anchored height="40" to="second_roll" position="below" offset="0,0"  />
+        <icon normal="d6gicon" pressed="d6gicon"/>
+        <tooltip textres="first_roll_1d6" />
+        <script>
+          function onButtonPress()
+          window.second_roll.setValue(gamescript.roll_1d6());
+          end;
+        </script>
+      </buttoncontrol>
+      <basicstring name="second_roll_label">
+        <anchored to="second_roll" position="above" offset="0,0" />
+        <static>
+          <textres>second_roll_1d6</textres>
+        </static>
+        <nodrag />
+        <nodrop />
+      </basicstring>
+      <!-- Third Roll -->
+      <numbercontrol name="third_roll">
+        <anchored position="insidetopleft" width="80" height="60" offset="400,200" />
+        <frame name="abilityscore" />
+        <nodrag />
+        <nodrop />
+        <font>modcollector</font>
+        <nokeyedit />
+      </numbercontrol>
+      <buttoncontrol name="button_third_roll">
+        <anchored height="40" to="third_roll" position="below" offset="0,0" />
+        <icon normal="d4gicon" pressed="d4gicon"/>
+        <tooltip textres="third_roll_1d4" />
+        <script>
+          function onButtonPress()
+          window.third_roll.setValue(gamescript.roll_1d4());
+          end;
+        </script>
+      </buttoncontrol>
+      <basicstring name="third_roll_label">
+        <anchored to="third_roll" position="above" offset="0,0" />
+        <static>
+          <textres>third_roll_1d4</textres>
+        </static>
+        <nodrag />
+        <nodrop />
+      </basicstring>
+      <!-- Show Hand -->
+      <buttoncontrol name="button_show_hand">
+        <anchored height="40" position="insidebottom" offset="0,40" />
+        <icon normal="button_showhand" pressed="button_showhand"/>
+        <tooltip textres="show_hand" />
+        <script>
+          function onButtonPress()
+            
+            local aMessage = {};
+            if(User.isHost()) then
+              aMessage.sender = "DM"
+            else
+              local rActor = ActorManager.getActorFromCT(CombatManager.getCurrentUserCT());
+              aMessage.sender = rActor.sName;
+            end  
+            aMessage.text = "Final Hand: " .. window.first_roll.getValue() .. "+";
+            aMessage.font = "chatfont";
+            aMessage.secret = false;
+            Comm.deliverChatMessage(aMessage);
+          end;
+        </script>
+      </buttoncontrol>
+     
+      
+		</sheetdata>
+	</windowclass>
+</root>

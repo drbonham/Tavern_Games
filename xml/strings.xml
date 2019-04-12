@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+    <!-- Games -->
+    <string name="games_main_title">Tavern Games!</string>
+    <string name="gambit_of_ord_title">Gambit of Ord!</string>
+    <string name="first_roll_1d8">First Roll</string>
+    <string name="second_roll_1d6">Second Roll</string>
+    <string name="third_roll_1d4">Third Roll</string>
+
+    <string name="intro">Third Roll</string>
+    <string name="show_hand">Show Hand!</string>
+</root>

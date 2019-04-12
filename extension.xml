@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root version="3.0" >
+	<properties>
+		<name>Tavern Games</name>
+		<version>1.0</version>
+		<author>drbonham</author>
+		<description>Adds tavern games to the 5E ruleset.</description>
+		<ruleset>
+			<name>5E</name>
+		</ruleset>
+	</properties>
+
+	<announcement text="Tavern Games v1.0 for FG v3.3.7 5E ruleset." font="emotefont" />
+
+	<base>
+		<!-- XML file containing button and window definition -->
+		<!--<includefile source="xml/GamesWindow.xml" /> -->
+    <includefile source="xml/Gambit_of_ord.xml" />
+    <includefile source="xml/strings.xml" />
+   <!--  <includefile source="xml/GamesTemplates.xml" /> -->
+    <script name="gamescript" file="lua/tavern_games.lua" />
+    <icon name="button_taverngames" file="graphics/btnTavernGames.png" />
+    <icon name="button_taverngames_down" file="graphics/btnTavernGamesDown.png" />
+    <icon name="button_showhand" file="graphics/btnShowHand.png" />
+    <!--
+        <string name="library_recordtype_label_testData">Games</string>
+        <string name="library_recordtype_empty_testData">&#171; Games 2 &#187;</string>
+        <script name="testscript" file="lua/tavern_games.lua" />
+     -->
+    
+	</base>
+</root>

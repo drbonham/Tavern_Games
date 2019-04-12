@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+  <panel name="gamewindow" modes="host,client">
+    <class>GambitofOrd</class>
+    <anchored>
+      <bottom anchor="bottom" offset="-35" />
+      <right parent="shortcuts" anchor="right" />
+      <left anchor="left" />
+      <size height="20" />
+    </anchored>
+
+    <windowreferencecontrol>
+      <class>GambitofOrd</class>
+      <icon normal="button_taverngames" pressed="button_tavergames_down" />
+    </windowreferencecontrol>
+
+  </panel>
+</root>
