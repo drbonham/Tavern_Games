@@ -27,6 +27,12 @@
         <string name="library_recordtype_empty_testData">&#171; Games 2 &#187;</string>
         <script name="testscript" file="lua/tavern_games.lua" />
      -->
-    
+
+		 <!-- Tavern Games Library Button -->
+		<icon file="graphics/download.png" name="icon_tavern_games" />
+		<icon file="graphics/download.png" name="icon_tavern_games_down" />
+		<string name="library_recordtype_label_tavernGamesData">Tavern Games</string>
+		<string name="library_recordtype_empty_tavernGamesData">Tavern Games</string>
+		<script name="LibManager" file="lua/data_library.lua" />
 	</base>
 </root>
