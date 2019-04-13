@@ -12,7 +12,7 @@
 
     <windowreferencecontrol>
       <class>GambitofOrd</class>
-      <icon normal="button_taverngames" pressed="button_tavergames_down" />
+      <icon normal="button_taverngames" pressed="button_taverngames_down" />
     </windowreferencecontrol>
 
   </panel>

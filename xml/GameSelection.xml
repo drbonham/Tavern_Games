@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+    <windowclass name="GameSelectionWindow">
+        <frame>campaignlistwithtabs</frame>
+        <sizelimits>
+            <minimum width="600" height="500" />
+        </sizelimits>
+        <minimize>minimized_reference</minimize>
+        <playercontrol />
+        <sheetdata>
+            <windowtitlebar name="title">
+                <resource>games_main_title</resource>
+            </windowtitlebar>
+            <windowreferencecontrol name="gambitOfOrdControl">
+                <class>GambitofOrd</class>
+                <icon normal="icon_tavern_games" pressed="icon_tavern_games" />
+                <bounds>16,60,64,64</bounds>
+            </windowreferencecontrol>
+            <stringfield name="name">
+                <anchored>
+                    <to>gambitOfOrdControl</to>
+                    <position>right</position>
+                    <offset>5,0</offset>
+                    <size>
+                        <width>256</width>
+                    </size>
+                </anchored>
+                <empty>Gambit of Ord!</empty>
+                <font>modcollector</font>
+                <nodrag />
+                <nodragselect />
+                <readonly />
+            </stringfield>
+        </sheetdata>
+    </windowclass>
+</root>

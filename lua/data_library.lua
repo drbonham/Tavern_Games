@@ -1,5 +1,5 @@
 function getTavernGamesWindow()
-    return "GambitofOrd"
+    return "GameSelectionWindow"
 end
 
 aRecords = {
