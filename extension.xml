@@ -17,6 +17,7 @@
 		<!--<includefile source="xml/GamesWindow.xml" /> -->
     <includefile source="xml/Gambit_of_ord.xml" />
     <includefile source="xml/strings.xml" />
+		<includefile source="xml/GameSelection.xml" />
    <!--  <includefile source="xml/GamesTemplates.xml" /> -->
     <script name="gamescript" file="lua/tavern_games.lua" />
     <icon name="button_taverngames" file="graphics/btnTavernGames.png" />
