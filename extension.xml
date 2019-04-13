@@ -30,6 +30,6 @@
 		<icon file="graphics/download.png" name="icon_tavern_games_down" />
 		<string name="library_recordtype_label_tavernGamesData">Tavern Games</string>
 		<string name="library_recordtype_empty_tavernGamesData">Tavern Games</string>
-		<script name="LibManager" file="lua/data_library.lua" />
+		<script name="TGLibManager" file="lua/data_library_tavern_games.lua" />
 	</base>
 </root>
