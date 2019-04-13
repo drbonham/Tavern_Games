@@ -13,6 +13,7 @@
                 <resource>games_main_title</resource>
             </windowtitlebar>
             <close_campaignlist />
+            <!-- Gambit of Ord -->
             <windowreferencecontrol name="gambitOfOrdControl">
                 <class>GambitofOrd</class>
                 <icon normal="icon_tavern_games" pressed="icon_tavern_games" />
@@ -21,6 +22,20 @@
             <stringfield name="name">
                 <anchored to="gambitOfOrdControl" position="right" offset="15,0" />
                 <empty>Gambit of Ord!</empty>
+                <font>modcollector</font>
+                <nodrag />
+                <nodragselect />
+                <readonly />
+            </stringfield>
+            <!-- Avandra's Favor -->
+            <windowreferencecontrol name="avandrasFavorControl">
+                <class>AvandrasFavor</class>
+                <icon normal="icon_tavern_games" pressed="icon_tavern_games" />
+                <bounds>64,196,64,64</bounds>
+            </windowreferencecontrol>
+            <stringfield name="name">
+                <anchored to="avandrasFavorControl" position="right" offset="15,0" />
+                <empty>Avandra's Favor!</empty>
                 <font>modcollector</font>
                 <nodrag />
                 <nodragselect />

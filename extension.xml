@@ -16,6 +16,7 @@
 		<!-- XML file containing button and window definition -->
 		<!--<includefile source="xml/GamesWindow.xml" /> -->
     <includefile source="xml/Gambit_of_ord.xml" />
+		<includefile source="xml/avandras_favor.xml" />
     <includefile source="xml/strings.xml" />
 		<includefile source="xml/GameSelection.xml" />
    <!--  <includefile source="xml/GamesTemplates.xml" /> -->
