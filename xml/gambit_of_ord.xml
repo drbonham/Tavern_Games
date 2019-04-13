@@ -21,16 +21,17 @@
 			<close_campaignlist />
 			<resize_campaignlistwithtabs />
 
-      <basicstring name="intro">
+      <stringfield name="intro">
         <anchored position="insidetopleft" offset="50,100" width="500"/>
+        <multilinespacing>18</multilinespacing>
         <static>
-          Rules: Each card player rolls 1d8, keeping the die hidden. Each player has the chance to\n 
-          raise the bet, call the bet (meet it), or fold. It continues when all bets are equal.\n
-          Then each player rolls a 1d6, keeping it secret as well. A final chance to raise, call,\n
-          or fold. Each remaining player rolls 1d4. They all reveal the 1d8, 1d6, and 1d4, adding\n
+          Rules: Each card player rolls 1d8, keeping the die hidden. Each player has the chance to 
+          raise the bet, call the bet (meet it), or fold. It continues when all bets are equal.
+          Then each player rolls a 1d6, keeping it secret as well. A final chance to raise, call,
+          or fold. Each remaining player rolls 1d4. They all reveal the 1d8, 1d6, and 1d4, adding
           them all together
         </static>
-      </basicstring>
+      </stringfield>
       
       <!-- First Roll -->
       <numbercontrol name="first_roll">
