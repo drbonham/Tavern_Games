@@ -12,20 +12,14 @@
             <windowtitlebar name="title">
                 <resource>games_main_title</resource>
             </windowtitlebar>
+            <close_campaignlist />
             <windowreferencecontrol name="gambitOfOrdControl">
                 <class>GambitofOrd</class>
                 <icon normal="icon_tavern_games" pressed="icon_tavern_games" />
-                <bounds>16,60,64,64</bounds>
+                <bounds>64,128,64,64</bounds>
             </windowreferencecontrol>
             <stringfield name="name">
-                <anchored>
-                    <to>gambitOfOrdControl</to>
-                    <position>right</position>
-                    <offset>5,0</offset>
-                    <size>
-                        <width>256</width>
-                    </size>
-                </anchored>
+                <anchored to="gambitOfOrdControl" position="right" offset="15,0" />
                 <empty>Gambit of Ord!</empty>
                 <font>modcollector</font>
                 <nodrag />
