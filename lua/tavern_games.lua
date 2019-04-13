@@ -9,7 +9,7 @@ function onInit()
 end
 
 function openWindow()
-	Interface.openWindow("GambitofOrd",0)
+	Interface.openWindow("GameSelectionWindow",0)
 end
 
 
