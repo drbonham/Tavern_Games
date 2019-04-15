@@ -20,25 +20,20 @@
                 <resource>avandras_favor_title</resource>
             </windowtitlebar>
             <close_campaignlist />
-            <resize_campaignlistwithtabs />
 
-            <basicstring name="intro">
-                <anchored position="insidetopleft" offset="50,100" width="500"/>
-                <static>
-                Players roll 2d6. If they add to a 7 or 12, the player wins. Gamblers can double the bet to add 1d6 to the total.
-                </static>
-            </basicstring>
-
+            <stringfield name="intro">
+              <anchored position="insidetopleft" offset="50,100" width="500"/>
+              <multilinespacing>18</multilinespacing>
+              <static>
+                Rules: Players roll 2d6. If they add to a 7 or 12, the player wins. Gamblers can double the bet to add 1d6 to the total.
+              </static>
+            </stringfield>
+          
             <!-- First Roll -->
-            <numbercontrol name="first_roll">
-                <anchored position="insidetopleft" width="80" height="60" offset="100,200" />
-                <frame name="abilityscore" />
-                <nodrag />
-                <nodrop />
-                <font>modcollector</font>
-                <nokeyedit />
-            </numbercontrol>
-            <buttoncontrol name="button_first_roll">
+          <roll_display name="first_roll">
+            <anchored position="insidetopleft" width="80" height="60" offset="100,200" />
+          </roll_display>
+          <buttoncontrol name="button_first_roll">
                 <anchored height="40" to="first_roll" position="below" offset="0,0" />
                 <icon normal="d6gicon" pressed="d6gicon"/>
                 <tooltip textres="first_roll_1d8" />
@@ -65,15 +60,10 @@
                 <nodrop />
             </basicstring>
             <!-- Second Roll -->
-            <numbercontrol name="second_roll">
-                <anchored position="insidetopleft" width="80" height="60" offset="250,200" />
-                <frame name="abilityscore" />
-                <nodrag />
-                <nodrop />
-                <font>modcollector</font>
-                <nokeyedit />
-            </numbercontrol>
-            <buttoncontrol name="button_second_roll">
+          <roll_display name="second_roll">
+            <anchored position="insidetopleft" width="80" height="60" offset="250,200" />
+          </roll_display>
+          <buttoncontrol name="button_second_roll">
                 <anchored height="40" to="second_roll" position="below" offset="0,0" />
                 <icon normal="d6gicon" pressed="d6gicon"/>
                 <tooltip textres="second_roll_1d6" />
@@ -100,18 +90,13 @@
                 <nodrop />
             </basicstring>
             <!-- Extra Roll -->
-            <numbercontrol name="extra_roll">
-                <anchored position="insidetopleft" width="80" height="60" offset="400,200" />
-                <frame name="abilityscore" />
-                <nodrag />
-                <nodrop />
-                <font>modcollector</font>
-                <nokeyedit />
-            </numbercontrol>
-            <buttoncontrol name="button_extra_roll">
+          <roll_display name="extra_roll">
+            <anchored position="insidetopleft" width="80" height="60" offset="400,200" />
+          </roll_display>
+          <buttoncontrol name="button_extra_roll">
                 <anchored height="40" to="extra_roll" position="below" offset="0,0" />
                 <icon normal="d6gicon" pressed="d6gicon"/>
-                <tooltip textres="extra_roll" />
+                <tooltip text="Extra Roll" />
                 <script>
                     function onButtonPress()
                         window.extra_roll.setValue(gamescript.roll_1d6());
@@ -129,21 +114,16 @@
             <basicstring name="extra_roll_label">
                 <anchored to="extra_roll" position="above" offset="0,0" />
                 <static>
-                    <textres>extra_roll</textres>
+                    Extra Roll
                 </static>
                 <nodrag />
                 <nodrop />
             </basicstring>
             <!-- Current Total-->
-            <numbercontrol name="current_total">
-                <anchored position="insidetopleft" width="80" height="60" offset="250,325" />
-                <frame name="abilityscore" />
-                <nodrag />
-                <nodrop />
-                <font>modcollector</font>
-                <nokeyedit />
-                <color>#FF0000</color>
-            </numbercontrol>
+          <roll_display name="current_total">
+            <anchored position="insidetopleft" width="80" height="60" offset="250,325" />
+            <color>#FF0000</color>
+          </roll_display>
             <basicstring name="current_total_label">
                 <anchored to="current_total" position="above" offset="0,0" />
                 <static>

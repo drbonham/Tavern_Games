@@ -14,9 +14,9 @@ end
 
 
 function game_init(wc)
-        Debug.console("self", wc)
-        Debug.console("getclass", wc.getClass())
-        Debug.console("getFrame", wc.getFrame())
+       -- Debug.console("self", wc) 
+       -- Debug.console("getclass", wc.getClass())
+       -- Debug.console("getFrame", wc.getFrame()) 
 end
 
 function roll_1d20()

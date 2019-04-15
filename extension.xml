@@ -19,7 +19,7 @@
 		<includefile source="xml/avandras_favor.xml" />
     <includefile source="xml/strings.xml" />
 		<includefile source="xml/GameSelection.xml" />
-   <!--  <includefile source="xml/GamesTemplates.xml" /> -->
+    <includefile source="xml/GamesTemplates.xml" /> 
     <script name="gamescript" file="lua/tavern_games.lua" />
     <icon name="button_taverngames" file="graphics/btnTavernGames.png" />
     <icon name="button_taverngames_down" file="graphics/btnTavernGamesDown.png" />

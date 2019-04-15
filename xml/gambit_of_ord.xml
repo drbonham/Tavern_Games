@@ -5,8 +5,7 @@
 		<frame>campaignlistwithtabs</frame>
 		<sizelimits>
       <minimum width="600" height="500" />
-	
-		</sizelimits>
+	  </sizelimits>
     <minimize>minimized_reference</minimize>
     <playercontrol />
     <script>
@@ -19,7 +18,6 @@
         <resource>gambit_of_ord_title</resource>
       </windowtitlebar>
 			<close_campaignlist />
-			<resize_campaignlistwithtabs />
 
       <stringfield name="intro">
         <anchored position="insidetopleft" offset="50,100" width="500"/>
@@ -34,18 +32,13 @@
       </stringfield>
       
       <!-- First Roll -->
-      <numbercontrol name="first_roll">
+      <roll_display name="first_roll">
         <anchored position="insidetopleft" width="80" height="60" offset="100,200" />
-        <frame name="abilityscore" />
-        <nodrag />
-        <nodrop />
-        <font>modcollector</font>
-        <nokeyedit />
-      </numbercontrol>   
+      </roll_display>  
       <buttoncontrol name="button_first_roll">
         <anchored height="40" to="first_roll" position="below" offset="0,0" />
         <icon normal="d8gicon" pressed="d8gicon"/>
-        <tooltip textres="first_roll_1d8" />
+        <tooltip text="First Roll" />
         <script>
           function onButtonPress()
             window.first_roll.setValue(gamescript.roll_1d8());
@@ -57,24 +50,19 @@
       <basicstring name="first_roll_label">
         <anchored to="first_roll" position="above" offset="0,0" />
         <static>
-          <textres>first_roll_1d8</textres>
+          First Card
         </static>
         <nodrag />
         <nodrop />
       </basicstring>
       <!-- Second Roll -->
-      <numbercontrol name="second_roll">
+      <roll_display name="second_roll">
         <anchored position="insidetopleft" width="80" height="60" offset="250,200" />
-        <frame name="abilityscore" />
-        <nodrag />
-        <nodrop />
-        <font>modcollector</font>
-        <nokeyedit />
-      </numbercontrol>
+      </roll_display>
       <buttoncontrol name="button_second_roll">
         <anchored height="40" to="second_roll" position="below" offset="0,0"  />
         <icon normal="d6gicon" pressed="d6gicon"/>
-        <tooltip textres="first_roll_1d6" />
+        <tooltip text="Second Roll" />
         <script>
           function onButtonPress()
             window.second_roll.setValue(gamescript.roll_1d6());
@@ -86,24 +74,19 @@
       <basicstring name="second_roll_label">
         <anchored to="second_roll" position="above" offset="0,0" />
         <static>
-          <textres>second_roll_1d6</textres>
+          Second Card
         </static>
         <nodrag />
         <nodrop />
       </basicstring>
       <!-- Third Roll -->
-      <numbercontrol name="third_roll">
+      <roll_display name="third_roll">
         <anchored position="insidetopleft" width="80" height="60" offset="400,200" />
-        <frame name="abilityscore" />
-        <nodrag />
-        <nodrop />
-        <font>modcollector</font>
-        <nokeyedit />
-      </numbercontrol>
+      </roll_display>
       <buttoncontrol name="button_third_roll">
         <anchored height="40" to="third_roll" position="below" offset="0,0" />
         <icon normal="d4gicon" pressed="d4gicon"/>
-        <tooltip textres="third_roll_1d4" />
+        <tooltip text="Third Roll" />
         <script>
           function onButtonPress()
             window.third_roll.setValue(gamescript.roll_1d4());
@@ -115,7 +98,7 @@
       <basicstring name="third_roll_label">
         <anchored to="third_roll" position="above" offset="0,0" />
         <static>
-          <textres>third_roll_1d4</textres>
+          Third Card
         </static>
         <nodrag />
         <nodrop />
