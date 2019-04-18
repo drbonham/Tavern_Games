@@ -54,3 +54,68 @@ function send_message(sText)
           Comm.deliverChatMessage(aMessage);
 
 end
+
+--Do a roll and update the passed control with the value
+--nc - number control to update, ie window.first_roll
+--d - random value to roll, ie 6
+--msg - message to send on rolling
+function do_roll(nc,d,msg)
+        local roll=math.random(d)
+        nc.setValue(roll)
+        send_message(msg)
+end
+
+--Get the total value for a list of number controls
+-- ncList - the ncs to add up, ie {window.first_roll,window.second_roll,window.third_roll}
+function get_total(ncList)
+        local total=0
+        for i=1,#ncList do
+                total = total + ncList[i].getValue()
+        end
+        return total
+end
+
+--Returns a string with all ncList values and their total
+-- ncList - the ncs to add up and put in the string, ie {window.first_roll,window.second_roll,window.third_roll}
+function get_total_string(ncList)
+        local total=get_total(ncList)
+        local sText = "Final Hand: "
+        for i=1,#ncList do
+                if(i==#ncList) then
+                        sText = sText .. ncList[i].getValue() .. " = " .. total
+                else
+                        sText = sText .. ncList[i].getValue() .. " + "
+                end
+        end
+        return sText        
+end
+
+-------------------------
+-- Avandra's Specific
+---------------------------
+
+--Add up all values and update the total display for avandras
+--nc - the target number control to display the total in, ie window.current_total
+--ncList - the list of number class controls to total up, ie {window.first_roll,..}
+function avandra_update_total(nc,ncList)
+        local total=get_total(ncList)
+        nc.setValue(total)
+        if(total==7 or total==12) then
+                nc.setColor("#008000")
+        else
+                nc.setColor("#FF0000")
+        end
+end
+
+--Show the hand for avandras
+--ncList - the list of number class controls represnting the die rolls
+function avandra_show_hand(ncList)
+        local total=get_total(ncList)
+        local sText = get_total_string(ncList)
+        send_message(sText)
+        if(total == 7 or total == 12) then
+                send_message("Winner!")
+        else
+                send_message("Loser, better luck next time!")
+        end
+end

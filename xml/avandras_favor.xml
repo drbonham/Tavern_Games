@@ -39,15 +39,8 @@
                 <tooltip textres="first_roll_1d8" />
                 <script>
                     function onButtonPress()
-                        window.first_roll.setValue(gamescript.roll_1d6());
-                        local sText = "is rolling their FIRST ROLL"
-                        gamescript.send_message(sText)
-                        local curTotal=window.first_roll.getValue() + window.second_roll.getValue() + window.extra_roll.getValue()
-                        window.current_total.setValue(curTotal) if(curTotal==7 or curTotal==12) then
-                            window.current_total.setColor("#008000");
-                        else
-                            window.current_total.setColor("#FF0000");
-                        end
+                        gamescript.do_roll(window.first_roll,6,"is rolling their FIRST ROLL")
+                        gamescript.avandra_update_total(window.current_total,{window.first_roll,window.second_roll,window.extra_roll})
                     end;
                 </script>
             </buttoncontrol>
@@ -69,15 +62,8 @@
                 <tooltip textres="second_roll_1d6" />
                 <script>
                     function onButtonPress()
-                        window.second_roll.setValue(gamescript.roll_1d6());
-                        local sText = "is rolling their SECOND ROLL"
-                        gamescript.send_message(sText)
-                        local curTotal=window.first_roll.getValue() + window.second_roll.getValue() + window.extra_roll.getValue()
-                        window.current_total.setValue(curTotal) if(curTotal==7 or curTotal==12) then
-                            window.current_total.setColor("#008000");
-                        else
-                            window.current_total.setColor("#FF0000");
-                        end
+                        gamescript.do_roll(window.second_roll,6,"is rolling their SECOND ROLL")
+                        gamescript.avandra_update_total(window.current_total,{window.first_roll,window.second_roll,window.extra_roll})
                     end;
                 </script>
             </buttoncontrol>
@@ -99,15 +85,8 @@
                 <tooltip text="Extra Roll" />
                 <script>
                     function onButtonPress()
-                        window.extra_roll.setValue(gamescript.roll_1d6());
-                        local sText = "is rolling their EXTRA ROLL"
-                        gamescript.send_message(sText)
-                        local curTotal=window.first_roll.getValue() + window.second_roll.getValue() + window.extra_roll.getValue()
-                        window.current_total.setValue(curTotal) if(curTotal==7 or curTotal==12) then
-                            window.current_total.setColor("#008000");
-                        else
-                            window.current_total.setColor("#FF0000");
-                        end
+                        gamescript.do_roll(window.extra_roll,6,"is rolling their EXTRA ROLL")
+                        gamescript.avandra_update_total(window.current_total,{window.first_roll,window.second_roll,window.extra_roll})
                     end;
                 </script>
             </buttoncontrol>
@@ -139,14 +118,7 @@
                 <tooltip textres="show_hand" />
                 <script>
                     function onButtonPress()
-                        local finalvalue = window.first_roll.getValue() + window.second_roll.getValue() + window.extra_roll.getValue()
-                        local sText = "Final Hand: " .. window.first_roll.getValue() .. "+" .. window.second_roll.getValue() .. "+" .. window.extra_roll.getValue() .. " = " .. finalvalue;                        
-                        gamescript.send_message(sText)
-                        if( finalvalue == 7 or finalvalue == 12) then
-                            gamescript.send_message("Winner!")
-                        else
-                            gamescript.send_message("Loser, better luck next time!")
-                        end
+                        gamescript.avandra_show_hand({window.first_roll,window.second_roll,window.extra_roll})
                     end;
                 </script>
             </buttoncontrol>
