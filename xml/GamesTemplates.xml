@@ -4,10 +4,31 @@
   <!-- Template for the roll display -->
   <template name="roll_display">
     <numbercontrol>
+      <anchored>
+        <size>
+          <width>80</width>
+          <height>60</height>
+        </size>
+      </anchored>
       <frame name="abilityscore" />
       <nodrag />
       <nodrop />
       <font>modcollector</font>
+      <nokeyedit />
+    </numbercontrol>
+  </template>
+
+  <template name="roll_hidden">
+    <numbercontrol>
+      <anchored>
+        <size>
+          <width>0</width>
+          <height>0</height>
+        </size>
+      </anchored>
+      <nodrag />
+      <nodrop />
+      <invisible />
       <nokeyedit />
     </numbercontrol>
   </template>

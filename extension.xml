@@ -24,6 +24,17 @@
     <icon name="button_taverngames" file="graphics/btnTavernGames.png" />
     <icon name="button_taverngames_down" file="graphics/btnTavernGamesDown.png" />
     <icon name="button_showhand" file="graphics/btnShowHand.png" />
+    
+    <!-- Cards -->
+    <icon name="card_0" file="graphics/cards/card_0.png" />
+    <icon name="card_1" file="graphics/cards/card_1.png" />
+    <icon name="card_2" file="graphics/cards/card_2.png" />
+    <icon name="card_3" file="graphics/cards/card_3.png" />
+    <icon name="card_4" file="graphics/cards/card_4.png" />
+    <icon name="card_5" file="graphics/cards/card_5.png" />
+    <icon name="card_6" file="graphics/cards/card_6.png" />
+    <icon name="card_7" file="graphics/cards/card_7.png" />
+    <icon name="card_8" file="graphics/cards/card_8.png" />
 
 		 <!-- Tavern Games Library Button -->
 		<icon file="graphics/download.png" name="icon_tavern_games" />

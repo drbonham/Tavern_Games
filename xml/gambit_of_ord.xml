@@ -4,8 +4,12 @@
 	<windowclass name="GambitofOrd">
 		<frame>campaignlistwithtabs</frame>
 		<sizelimits>
-      <minimum width="600" height="500" />
+      <minimum width="900" height="700" />
+      <maximum width="900" height="700" />
 	  </sizelimits>
+    <placement>
+      <size width="900" height="700" />
+    </placement>
     <minimize>minimized_reference</minimize>
     <playercontrol />
     <script>
@@ -18,9 +22,9 @@
         <resource>gambit_of_ord_title</resource>
       </windowtitlebar>
 			<close_campaignlist />
-
+      
       <stringfield name="intro">
-        <anchored position="insidetopleft" offset="50,100" width="500"/>
+        <anchored position="insidetopleft" offset="55,100" width="800"/>
         <multilinespacing>18</multilinespacing>
         <static>
           Rules: Each card player rolls 1d8, keeping the die hidden. Each player has the chance to 
@@ -30,25 +34,27 @@
           them all together
         </static>
       </stringfield>
-      
       <!-- First Roll -->
-      <roll_display name="first_roll">
-        <anchored position="insidetopleft" width="80" height="60" offset="100,200" />
-      </roll_display>  
+      <genericcontrol name="first_card">
+        <anchored position="insidetopleft" width="200" height ="273" offset="100,200" />
+        <icon>card_0</icon>
+      </genericcontrol>
+      <roll_hidden name="first_roll">
+        <anchored position="insidetopleft" width="0" height ="0" offset="100,200" />
+      </roll_hidden>
       <buttoncontrol name="button_first_roll">
-        <anchored height="40" to="first_roll" position="below" offset="0,0" />
+        <anchored height="40" to="first_card" position="below" offset="0,10" />
         <icon normal="d8gicon" pressed="d8gicon"/>
         <tooltip text="First Roll" />
         <script>
           function onButtonPress()
-            window.first_roll.setValue(gamescript.roll_1d8());
-            local sText = "is rolling their FIRST ROLL"
-            gamescript.send_message(sText)
+            gamescript.do_roll_card(window.first_roll,window.first_card,8,"is rolling their FIRST ROLL")
+            gamescript.update_total(window.total,{window.first_roll,window.second_roll,window.third_roll})
           end;
         </script>
       </buttoncontrol>
-      <basicstring name="first_roll_label">
-        <anchored to="first_roll" position="above" offset="0,0" />
+      <basicstring name="first_card_label">
+        <anchored to="first_card" position="above" offset="0,0" />
         <static>
           First Card
         </static>
@@ -56,23 +62,26 @@
         <nodrop />
       </basicstring>
       <!-- Second Roll -->
-      <roll_display name="second_roll">
-        <anchored position="insidetopleft" width="80" height="60" offset="250,200" />
-      </roll_display>
+      <genericcontrol name="second_card">
+        <anchored position="insidetopleft" width="200" height ="273" offset="350,200" />
+        <icon>card_0</icon>
+      </genericcontrol>
+      <roll_hidden name="second_roll">
+        <anchored position="insidetopleft" width="0" height ="0" offset="350,200" />
+      </roll_hidden>
       <buttoncontrol name="button_second_roll">
-        <anchored height="40" to="second_roll" position="below" offset="0,0"  />
+        <anchored height="40" to="second_card" position="below" offset="0,10"  />
         <icon normal="d6gicon" pressed="d6gicon"/>
         <tooltip text="Second Roll" />
         <script>
           function onButtonPress()
-            window.second_roll.setValue(gamescript.roll_1d6());
-            local sText = "is rolling their SECOND ROLL"
-            gamescript.send_message(sText)
+            gamescript.do_roll_card(window.second_roll,window.second_card,6,"is rolling their SECOND ROLL")
+            gamescript.update_total(window.total,{window.first_roll,window.second_roll,window.extra_roll})
           end;
         </script>
       </buttoncontrol>
-      <basicstring name="second_roll_label">
-        <anchored to="second_roll" position="above" offset="0,0" />
+      <basicstring name="second_card_label">
+        <anchored to="second_card" position="above" offset="0,0" />
         <static>
           Second Card
         </static>
@@ -80,29 +89,36 @@
         <nodrop />
       </basicstring>
       <!-- Third Roll -->
-      <roll_display name="third_roll">
-        <anchored position="insidetopleft" width="80" height="60" offset="400,200" />
-      </roll_display>
+      <genericcontrol name="third_card">
+        <anchored position="insidetopleft" width="200" height ="273" offset="600,200" />
+        <icon>card_0</icon>
+      </genericcontrol>
+      <roll_hidden name="third_roll">
+        <anchored position="insidetopleft" width="0" height ="0" offset="600,200" />
+      </roll_hidden>
       <buttoncontrol name="button_third_roll">
-        <anchored height="40" to="third_roll" position="below" offset="0,0" />
+        <anchored height="40" to="third_card" position="below" offset="0,10" />
         <icon normal="d4gicon" pressed="d4gicon"/>
         <tooltip text="Third Roll" />
         <script>
           function onButtonPress()
-            window.third_roll.setValue(gamescript.roll_1d4());
-            local sText = "is rolling their THIRD ROLL"
-            gamescript.send_message(sText)
+            gamescript.do_roll_card(window.third_roll,window.third_card,4,"is rolling their THIRD ROLL")
+            gamescript.update_total(window.total,{window.first_roll,window.second_roll,window.third_roll})
           end;
         </script>
       </buttoncontrol>
-      <basicstring name="third_roll_label">
-        <anchored to="third_roll" position="above" offset="0,0" />
+      <basicstring name="third_card_label">
+        <anchored to="third_card" position="above" offset="0,0" />
         <static>
           Third Card
         </static>
         <nodrag />
         <nodrop />
       </basicstring>
+      <roll_display name="total">
+        <anchored position="insidebottomleft" offset="410,110" />
+        <tooltip text="Total" />
+      </roll_display> -->
       <!-- Show Hand -->
       <buttoncontrol name="button_show_hand">
         <anchored height="40" position="insidebottom" offset="0,40" />
@@ -110,7 +126,7 @@
         <tooltip textres="show_hand" />
         <script>
           function onButtonPress()
-            local finalvalue = window.first_roll.getValue() + window.second_roll.getValue() + window.third_roll.getValue()
+            local finalvalue = gamescript.get_total({window.first_roll,window.second_roll,window.third_roll})
             local sText = "Final Hand: " .. window.first_roll.getValue() .. "+" .. window.second_roll.getValue() .. "+" .. window.third_roll.getValue() .. " = " .. finalvalue;
             gamescript.send_message(sText)
           end;

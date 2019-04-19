@@ -65,6 +65,15 @@ function do_roll(nc,d,msg)
         send_message(msg)
 end
 
+--gc - generic control to update, ie window.first_roll
+function do_roll_card(nc,gc,d,msg)
+        local roll=math.random(d)
+		local card="card_"..roll
+		nc.setValue(roll)
+		gc.setIcon(card,1)
+        send_message(msg)
+end
+
 --Get the total value for a list of number controls
 -- ncList - the ncs to add up, ie {window.first_roll,window.second_roll,window.third_roll}
 function get_total(ncList)
@@ -73,6 +82,11 @@ function get_total(ncList)
                 total = total + ncList[i].getValue()
         end
         return total
+end
+
+function update_total(nc,ncList)
+        local total=get_total(ncList)
+        nc.setValue(total)
 end
 
 --Returns a string with all ncList values and their total
