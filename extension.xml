@@ -23,7 +23,8 @@
     <script name="gamescript" file="lua/tavern_games.lua" />
     <icon name="button_taverngames" file="graphics/btnTavernGames.png" />
     <icon name="button_taverngames_down" file="graphics/btnTavernGamesDown.png" />
-    <icon name="button_showhand" file="graphics/btnShowHand.png" />
+    <icon name="button_showhand_up" file="graphics/btnShowHand_up.png" />
+    <icon name="button_showhand_down" file="graphics/btnShowHand_down.png" />
     
     <!-- Cards -->
     <icon name="card_0" file="graphics/cards/card_0.png" />

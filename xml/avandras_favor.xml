@@ -113,8 +113,8 @@
             </basicstring>
             <!-- Show Hand -->
             <buttoncontrol name="button_show_hand">
-                <anchored height="40" position="insidebottom" offset="0,40" />
-                <icon normal="button_showhand" pressed="button_showhand"/>
+                <anchored height="60" position="insidebottom" offset="0,40" />
+                <icon normal="button_showhand_up" pressed="button_showhand_down"/>
                 <tooltip textres="show_hand" />
                 <script>
                     function onButtonPress()
